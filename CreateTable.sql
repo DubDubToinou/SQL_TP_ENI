@@ -2,7 +2,7 @@ USE LOCATIONS
 GO
 
 CREATE TABLE Clients(
-	noCli NUMERIC(6) not null IDENTITY(1,1),
+	noCli NUMERIC(6) not null,
 	nom VARCHAR(30) not null,
 	prenom VARCHAR(30) null,
 	adresse VARCHAR(120) null,
@@ -14,7 +14,7 @@ CREATE TABLE Clients(
 
 CREATE TABLE Fiches(
 
-	noFic NUMERIC(6) not null IDENTITY(1,1),
+	noFic NUMERIC(6) not null,
 	noCli NUMERIC(6) not null,
 	dateCrea DATETIME not null		CONSTRAINT DF_Fiches_dateCrea DEFAULT getDate(),
 	datePaye DATETIME null,			
@@ -76,7 +76,7 @@ CREATE TABLE Articles(
 CREATE TABLE Lignes_Fic(
 	
 	noFic NUMERIC(6) not  null,
-	noLig NUMERIC(3) not null IDENTITY(1,1),
+	noLig NUMERIC(3) not null,
 	refArt CHAR(8) not null,
 	depart DATETIME not  null CONSTRAINT DF_Lignes_Fic DEFAULT getDate(),
 	retour  DATETIME null, 
